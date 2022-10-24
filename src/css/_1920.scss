@@ -1,0 +1,584 @@
+@import '_var.scss';
+@import '_mixin.scss';
+
+.container {
+  width: 1290px;
+  margin: 0 auto;
+}
+
+
+.header {
+  background: $colorBlack;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 80px));
+    grid-template-areas: "logo logo logo nav nav nav nav nav nav nav search search";
+    gap: 30px;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 25.3px;
+  }
+  &__logo {
+    grid-area: logo;
+    justify-self: start;
+    width: 190px;
+    height: 30.7px;
+    background-image: url('../img/header/logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+  &__nav {
+    grid-area: nav;
+    .nav {
+      &__burger {
+        display: none;
+      }
+      &__list {
+        display: flex;
+        justify-content: space-between
+      }
+      &__item {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorWhite;
+        transition-duration: 0.5s;
+        &:hover {color: $styleColor};
+        &:focus-within {background: $styleHoverColor};
+        &:active {color: $styleActiveColor};
+      }
+      &__exit,
+      &__tel {
+        display: none;
+      }
+    }
+  }
+  &__search {
+    position: relative;
+    grid-area: search;
+    justify-self: end;
+    .form {
+      &.form-active {
+        display: flex;
+        align-items: center;
+      }
+      position: absolute;
+      top: -2px;
+      right: 0;
+      z-index: 10;
+      display: none;
+      width: 342px;
+      height: 30px;
+      background: $colorBlack;
+      &__input {
+        width: 308px;
+        margin-right: 9px;
+        padding: 0 4px;
+        color: $colorThin;
+        background: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $colorThin;
+        transition-duration: 0.3s;
+        &::placeholder {
+          color: $colorThin;
+        }
+        &:hover,
+        &:focus {
+          border-bottom: 1px solid $styleColor;
+        }
+        &:active {
+          border-bottom: 1px solid $styleActiveColor;
+        }
+      }
+      .close-form {
+        @include svgUI;
+      }
+    }
+    @include svgUI;
+  }
+}
+
+.hero {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+    grid-auto-flow: row;
+    gap: 34px 30px;
+    padding-top: 41px;
+    padding-bottom: 67px;
+  }
+  & picture {
+    height: 100%;
+  }
+  &__one {
+    position: relative;
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 60px;
+      &__descr {
+        margin-bottom: 3px;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $colorWhite;
+      }
+      &__title {
+        margin-bottom: 19px;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 37px;
+        color: $colorWhite;
+      }
+      &__btn {
+        @include btn;
+      }
+    }
+    .hash {
+      @include hashTag;
+      top: 15px;
+      right: 15px;
+      padding: 7px 15px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+  &__right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 30px;
+  }
+  &__two {
+    grid-column: span 2;
+    grid-row: span 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .subtitle {
+      margin-bottom: 18px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 25px;
+      color: $colorBlack;
+    }
+    & img {
+      height: 300px;
+    }
+  }
+}
+
+.studio {
+  background-color: $colorBlack;
+  &__container {
+    padding-top: 30px;
+    padding-bottom: 68px;
+  }
+  &__title {
+    margin-bottom: 3px;
+    @include section-title;
+    color: $colorWhite;
+  }
+  &__large {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+    grid-auto-flow: row;
+    gap: 22px 30px;
+  }
+  &__left {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $colorLight;
+  }
+  & picture {
+    margin-bottom: 25px;
+  }
+  &__subtitle {
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 22px;
+    color: $colorWhite;
+  }
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(94px, 138px)) 126px;
+    grid-auto-flow: row;
+    gap: 20px 30px;
+    & div {
+      position: relative;
+      grid-column: span 3;
+    }
+    & input {
+      padding: 15px 23px;
+      @include input;
+      color: $colorWhite;
+      background-color: $colorRegular;
+      &::placeholder {
+        color: $colorLight;
+      }
+      &.just-validate-error-field {
+        outline: 1px solid $errorForDarkColor !important;
+      }
+      & ~ .just-validate-error-label {
+        color: $errorForDarkColor !important;
+      }
+    }
+    & button {
+      @include btn;
+      width: min-content;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.projects {
+  &__container {
+    padding-top: 68px;
+    padding-bottom: 66px;
+  }
+  &__title {
+    margin-bottom: 12px;
+    @include section-title;
+  }
+  &__large {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0,80px));
+    gap: 28px 30px;
+  }
+  .rel {
+    position: relative;
+  }
+  .picture-top {
+    height: 300px;
+  }
+  &__one {
+    grid-column: span 2;
+  }
+  &__two {
+    grid-column: span 2;
+  }
+  &__three {
+    grid-column: span 2;
+  }
+  &__four {
+    grid-column: span 6;
+  }
+  &__five {
+    order: 7;
+    grid-column: span 3;
+  }
+  &__six {
+    order: 8;
+    grid-column: span 3;
+  }
+  &__seven {
+    grid-column: span 6;
+  }
+  .projects-cart {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    &__descr {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: $colorBlack;
+    }
+    &__date {
+      position: relative;
+      padding-left: 20px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 22px;
+      color: $colorNormal;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 12px;
+        height: 13px;
+        background-image: url('../img/projects/date.svg');
+      }
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 24px;
+      color: $colorWhite;
+    }
+    &__btn {
+      @include btn;
+      width: min-content;
+      padding: 11.5px 19px;
+      background: none;
+      border: 3px solid $styleColor;
+    }
+    .p-overflow {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+    }
+  }
+  &__cart--down {
+    .projects-cart {
+      &__descr {
+        margin-top: 18px;
+        margin-bottom: 13px;
+      }
+      &__date {
+        margin-top: auto;
+      }
+    }
+  }
+  &__cart--up {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 352px;
+    padding: 22px 30px 34px;
+    .projects-cart {
+      &__date {
+        margin-bottom: 2px;
+        color: $colorWhite;
+        &::after {
+          content: '';
+          background-image: url('../img/projects/date-white.svg');
+        }
+      }
+      &__title {
+        margin-bottom: 6px;
+      }
+      &__descr {
+        color: $colorWhite;
+      }
+      &__btn {
+        margin-top: auto;
+      }
+    }
+  }
+  .hash {
+    @include hashTag;
+    top: 7px;
+    right: 7px;
+    padding: 6px 14px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.contacts {
+  &__container {
+    padding-bottom: 67px;
+  }
+  &__title {
+    margin-bottom: 22px;
+    @include section-title;
+  }
+  &__large {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0,80px));
+    grid-auto-rows: 460px;
+    gap: 30px;
+  }
+  &__left {
+    grid-column: span 8;
+  }
+  .location {
+    position: relative;
+    &__map {
+      height: 100%;
+      [class*="ground-pane"] {
+        filter: grayscale(1)
+      }
+    }
+    &__cart {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: calc((100% - 30px)/2);
+      background-color: $colorBold;
+    }
+  }
+  .cart {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 70px 60px 50px;
+    box-sizing: border-box;
+    &__title {
+      margin-bottom: 5px;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 22px;
+      color: $colorWhite;
+    }
+    &__descr {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: $colorLight;
+    }
+    &__tel {
+      display: -webkit-inline-box;
+      width: 155px;
+      overflow: visible;
+      font-family: 'TTFirsNeue';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      white-space: nowrap;
+      color: $styleColor;
+      & svg {
+        overflow: visible;
+      }
+      & span {
+        padding-left: 5px;
+      }
+    }
+    &__exit {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../img/contacts/х.png');
+    }
+  }
+  &__right {
+    grid-column: span 4;
+  }
+  .form {
+    &__title {
+      margin-bottom: 9px;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 10px;
+      color: $colorBlack;
+    }
+    &__descr {
+      margin-bottom: 16px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: $colorNormal;
+    }
+    &__input {
+      margin-bottom: 20px;
+      padding: 15px 23px;
+      @include input;
+      color: $colorBlack;
+      background: $colorThin;
+      &::placeholder {
+        color: $colorNormal;
+      }
+      &.just-validate-error-field {
+        outline: 1px solid $errorForLightColor !important;
+      }
+      & ~ .just-validate-error-label {
+        color: $errorForLightColor !important;
+      }
+    }
+    &__name,
+    &__mail {
+      position: relative;
+    }
+    &__btn {
+      @include btn;
+    }
+  }
+}
+
+.footer {
+  background: $colorBlack;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0,80px));
+    gap: 30px;
+    justify-items: start;
+    align-items: center;
+    grid-template-areas: "logo logo logo logo text text text text text soc soc soc";
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+  &__logo {
+    grid-area: logo;
+    .logo {
+      &__img {
+        width: 190px;
+        height: 30.7px;
+        margin-bottom: 7px;
+        background-image: url('../img/footer/logo.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      &__descr {
+        font-size: 14px;
+        line-height: 18px;
+        color: $colorThin;
+      }
+    }
+  }
+  &__text {
+    grid-area: text;
+    .text {
+      max-width: 361px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: $colorLight;
+    }
+  }
+  &__social {
+    grid-area: soc;
+    justify-self: end;
+    .social {
+      &__title {
+        margin-bottom: 8px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorLight;
+      }
+      &__links {
+        text-align: center;
+        .ok {
+          margin-right: 16px;
+        }
+        svg {
+          @include svgUI;
+        }
+      }
+    }
+  }
+}

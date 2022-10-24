@@ -1,0 +1,143 @@
+.container {
+  width: auto;
+  margin: 0 $margin768;
+}
+
+.header {
+  &__container {
+    grid-template-columns: repeat(6, minmax(0, 94px));
+    grid-template-rows: auto auto;
+    grid-template-areas: "logo logo logo search search search"
+                          "nav nav nav nav nav nav";
+    gap: 24px 30px;
+    padding-bottom: 0;
+  }
+  &__nav {
+    margin: 0 (-$margin768);
+    padding: 11px $margin768;
+    background-color: $colorRegular;
+    .nav {
+      &__list {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.hero {
+  &__container {
+    padding-top: 36px;
+    padding-bottom: 66px;
+  }
+  &__one {
+    .content {
+      &__descr {
+        margin-bottom: 14px;
+      }
+      &__title {
+        margin-bottom: 23px;
+        line-height: 31px;
+      }
+    }
+  }
+  &__two {
+    .subtitle {
+      margin-bottom: 17px;
+      font-size: 22px;
+      line-height: 23px;
+    }
+  }
+}
+
+.studio {
+  &__container {
+    padding-bottom: 65px;
+  }
+  &__title {
+    margin-bottom: 3px;
+  }
+}
+
+.projects {
+  &__large {
+    grid-template-columns: repeat(6, minmax(0, 94px));
+    gap: 30px;
+  }
+  .picture-top {
+    height: 300px;
+  }
+  &__three {
+    grid-column: span 2;
+  }
+  &__four {
+    grid-column: span 6;
+  }
+  &__seven {
+    grid-column: span 6;
+  }
+  .projects-cart {
+    .p-overflow {
+      -webkit-line-clamp: 3;
+      &__individ {
+        -webkit-line-clamp: 2;
+      }
+      & ~ .projects-cart__date {
+        margin-bottom: -7px;
+      }
+    }
+  }
+  &__cart--down {
+    .projects-cart {
+      &__descr {
+        margin-bottom: 11px;
+      }
+    }
+  }
+  &__cart--up {
+    padding: 30px;
+  }
+}
+
+.contacts {
+  &__container {
+    padding-top: 3px;
+    padding-bottom: 46px;
+  }
+  &__large {
+    grid-template-columns: repeat(6, minmax(0, 94px));
+  }
+  &__left {
+    grid-column: span 6;
+  }
+  &__right {
+    grid-column: span 4;
+  }
+  .cart {
+    padding: 25px 30px 26px;
+    &__descr {
+      width: 436px;
+    }
+    &__tel {
+      display: flex;
+    }
+  }
+}
+
+.footer {
+  &__container {
+    grid-template-columns: repeat(6, minmax(0, 94px));
+    grid-template-areas: "logo logo logo soc soc soc";
+  }
+  &__logo {
+    .logo {
+      &__img {
+        width: 166px;
+        height: 26.79px;
+      }
+    }
+  }
+  &__text {
+    display: none;
+  }
+}
+

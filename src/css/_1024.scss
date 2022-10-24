@@ -1,0 +1,161 @@
+.container {
+  width: auto;
+  margin: 0 $margin1024;
+}
+
+.header {
+  &__container {
+    grid-template-columns: repeat(8, minmax(0, 94px));
+    grid-template-areas: "logo logo nav nav nav nav nav search";
+    padding-top: 26px;
+    padding-bottom: 25px;
+  }
+  &__logo {
+    width: 166px;
+    height: 26.79px;
+  }
+  &__nav {
+    .nav {
+      &__list {
+        min-width: 472px;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+.hero {
+  &__container {
+    padding-top: 34px;
+  }
+  &__one {
+    .content {
+      padding: 30px;
+      &__descr {
+        margin-bottom: 9px;
+      }
+      &__title {
+        margin-bottom: 22px;
+        font-size: 34px;
+        line-height: 34px;
+      }
+    }
+  }
+  & img {
+    height: auto;
+  }
+  &__two {
+    .subtitle {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.studio {
+  &__container {
+    padding-bottom: 81px;
+  }
+  & picture {
+    margin-bottom: 23px;
+  }
+  &__subtitle {
+    margin-bottom: 17px;
+  }
+}
+
+.projects {
+  &__large {
+    grid-template-columns: repeat(8, minmax(0, 94px));
+    gap: 24px 30px;
+  }
+  .picture-top {
+    height: 307px;
+  }
+  &__three {
+    grid-column: span 4;
+  }
+  &__four {
+    grid-column: span 5;
+  }
+  &__five {
+    order: initial;
+    grid-column: span 3;
+  }
+  &__six {
+    order: initial;
+    grid-column: span 3;
+  }
+  &__seven {
+    grid-column: span 5;
+  }
+  .projects-cart {
+    .p-overflow {
+      -webkit-line-clamp: 2;
+    }
+  }
+  &__cart--down {
+    .projects-cart {
+      &__descr {
+        margin-bottom: 17px;
+      }
+    }
+  }
+  &__cart--up {
+    padding: 30px 30px 37px;
+  }
+  &__seven {
+    & .projects__cart--up {
+      padding-bottom: 30px;
+    }
+  }
+}
+
+.contacts {
+  &__container {
+    padding-top: 2px;
+  }
+  &__large {
+    grid-template-columns: repeat(8, minmax(0, 94px));
+  }
+  &__left {
+    grid-column: span 5;
+  }
+  &__right {
+    grid-column: span 3;
+  }
+  .location {
+    &__cart {
+      top: initial;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .cart {
+    padding: 25px 30px 21px;
+    &__descr {
+      width: 300px;
+    }
+  }
+  .form {
+    &__input {
+      margin-bottom: 21.5px;
+    }
+  }
+}
+
+.footer {
+  &__container {
+    grid-template-columns: repeat(8, minmax(0, 94px));
+    grid-template-areas: "logo logo logo text text text soc soc";
+  }
+  &__logo {
+    .logo {
+      &__img {
+        width: 166px;
+        height: 26.79px;
+      }
+    }
+  }
+}

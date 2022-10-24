@@ -1,0 +1,26 @@
+@import '_var.scss';
+@import '_glob.scss';
+
+@import '_1920.scss';
+
+@media (max-width: 1352px) {
+  .container {
+    margin: 0 $margin1024;
+    width: auto;
+  }
+  .studio__form {
+    max-width: 342px;
+  }
+}
+
+@media (max-width: 1042px) {
+  @import '_1024.scss';
+}
+
+@media (max-width: 786px) {
+  @import '_768.scss';
+}
+
+@media (max-width: 560px) {
+  @import '_320.scss';
+}

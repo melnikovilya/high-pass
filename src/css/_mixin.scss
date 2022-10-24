@@ -1,0 +1,94 @@
+@import '_var.scss';
+
+@mixin hashTag {
+  position: absolute;
+  background-color: $colorBlack;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: $colorWhite;
+}
+
+@mixin btn {
+  padding: 15.5px 22px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $colorWhite;
+  background-color: $styleColor;
+  transition-duration: 0.5s;
+  &:hover {background-color: $styleHoverColor};
+  &:focus-within {outline: 3px solid $styleActiveColor};
+  &:active {background-color: $styleActiveColor};
+  @media (max-width: 560px) {
+    padding: 12px 22px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@mixin section-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  @media (max-width: 560px) {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
+
+@mixin input {
+  width: 100%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  box-sizing: border-box;
+  border: none;
+  resize: none;
+  transition-duration: 0.3s;
+  &::placeholder {
+    transition-duration: 0.3s;
+  }
+  &:hover {
+    &::placeholder {
+      color: $styleColor;
+    }
+  };
+  &:focus-within {
+    outline: 1px solid $styleColor
+  };
+  & ~ .just-validate-error-label {
+    position: absolute;
+    top: 3px;
+    left: 23px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+  }
+}
+
+@mixin svgUI {
+  cursor: pointer;
+  & path,
+  & circle {
+    transition-duration: 0.5s;
+  }
+  &:hover path,
+  &:hover circle {
+    fill: $styleColor;
+  }
+  &:focus-within path,
+  &:focus-within circle {
+    fill: $styleHoverColor;
+  }
+  &:active path,
+  &:active circle {
+    fill: $styleHoverColor;
+  }
+
+}
